@@ -1,30 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import Controlled from './components /forms/controlled /controlled';
+import Todos from './components /forms/todo/todo';
+import Uncontrolled from './components /forms/uncontrolled /uncontrolled';
+import UseState1 from './components /hooks/useState1';
+import NavigationStack from './navigationStack/navigationStack';
 
 function App() {
 
-  
-
-
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          login done 
-        </a>
-      </header>
-    </div>
+    <>
+<NavigationStack/>
+    </>
+   
   );
 
 }
@@ -63,6 +50,94 @@ export default App;
 // * 🔴 Do not call Hooks in event handlers.
 // * 🔴 Do not call Hooks in class components.
 // * 🔴 Do not call Hooks inside functions passed to useMemo, useReducer, or useEffect.
+
+
+
+
+// useState : 
+// It is hook in react functional component which let you create and manage the state 
+
+
+// useState will accept one argument , we called argument as state variable (initializer)(any data types)
+
+
+// useState will return an array , which having 2 elements 
+
+// element1---> current state 
+// element2---> updater function
+
+// counter --> 0
+
+// const data =useState(0) ----> 
+
+// const [currentState,updaterFunction]=useState(0)
+
+
+
+
+// 11-Dec-2023
+
+// forms :
+
+// 2 ways to deal with forms 
+
+// 1. uncontrolled components 
+
+// dom 
+// dis-advantage 
+// 1. field validation not possible , we can validate only once with submit the entire form 
+
+// 2. controlled components 
+
+// react 
+
+// advantage 
+
+// 1. field validations were possible 
+
+
+
+
+
+
+// routing : navigation or switching between the pages --> readability ,maintanence
+
+
+// react : ---> for routing we will dependent on 3rd party library called react-router-dom
+
+// pre login routes or pages 
+
+// navigation stack before login
+
+// 1. registration 
+// 2. login 
+// 3. forgot password 
+
+// navigation stack after login
+// post login routes or pages 
+
+// 1. Home screen 
+// 2. about screen 
+// 3. setting screen 
+// etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
