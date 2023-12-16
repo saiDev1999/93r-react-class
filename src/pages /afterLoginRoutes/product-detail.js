@@ -11,6 +11,7 @@ function ProductDetails() {
     const handleProduct=()=>{
         axios.get(`https://fakestoreapi.com/products/${urlId.id}`)
         .then(response=>setProductDetail(response.data))
+        
     }
   return (
     <div>

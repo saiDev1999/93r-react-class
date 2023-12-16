@@ -7,33 +7,34 @@ import HomeScreen from "../pages /afterLoginRoutes/home-screen"
 import AboutScreen from "../pages /afterLoginRoutes/about-screen"
 import SettingScreen from "../pages /afterLoginRoutes/setting-screen"
 import ProductDetails from "../pages /afterLoginRoutes/product-detail"
+import PostLoginRoutes from "./postLoginRoutes/postLoginRoutes"
+import PreLoginRoutes from "./preLoginRoutes/preLoginRoutes"
+import { useState } from "react"
 
 
 
 const NavigationStack = () =>{
+    const[login,setLogin]=useState(false)
+    const signIn=()=>{
+        setLogin(true)
+    }
 
+    const signOut=()=>{
+        setLogin(false)
+    }
 
     return(
         <BrowserRouter>
-        <Routes>
-            {/* <Route path="/" Component={LoginScreen}  />
-            <Route path="/register" Component={RegistrationScreen}  />
-            <Route path="/forgot-password" Component={ForgotPasswordScreen}  />
-            <Route path="*" Component={InvalidScreen}  /> */}
+   
+          {
+            login
+            ?
+            <PostLoginRoutes/>
+            :
+            <PreLoginRoutes/>
 
-<Route path="/" Component={LoginScreen}  />
- <Route path="/home" Component={HomeScreen}  />
-            <Route path="/about" Component={AboutScreen}  />
-            <Route path="/settings" Component={SettingScreen}  />
-            <Route path="*" Component={InvalidScreen}  />
+          }
 
-            <Route path="/product/:id/:id" Component={ProductDetails}  />
-
-
-    
-
-
-        </Routes> 
         </BrowserRouter>
 
     )
@@ -47,3 +48,20 @@ export default NavigationStack
 // 1. browser router 
 // 2. routes list 
 // 3. route path and component 
+
+
+
+
+
+
+
+// protected routes 
+// 1. flag ---> login ---> false , flag --> true
+
+
+
+
+// global state management
+
+// 1. context api (pre buil to react)
+// 2. redux (3rd party integration)
