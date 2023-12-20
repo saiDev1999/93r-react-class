@@ -1,7 +1,18 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { UserName } from "../../App"
 
 
 const Navbar =()=>{
+
+
+
+     
+    const dataFromApp=useContext(UserName) 
+    const darkMode=false
+
+
+    const mode=darkMode ?"dark":"light"
     const navItem={
         textDecoration:"none",
         color:"black",
@@ -13,7 +24,7 @@ const Navbar =()=>{
     marginRight:10
     }
     return(
-        <nav className="navbar navbar-expand-sm bg-light navbar-light">
+        <nav className={`navbar navbar-expand-sm bg-${mode} navbar-light`}>
   <div className="container-fluid">
     <ul className="navbar-nav">
       <li className="nav-item" style={liItem} >
@@ -24,6 +35,11 @@ const Navbar =()=>{
       </li>
       <li className="nav-item" style={liItem} >
         <Link style={navItem} to={"/settings"}  >Setting</Link>
+      </li>
+    
+
+      <li className="nav-item" style={liItem} >
+        {dataFromApp}
       </li>
 
     </ul>

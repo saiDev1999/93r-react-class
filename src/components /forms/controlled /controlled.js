@@ -1,10 +1,16 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { LoginInfo } from "../../../navigationStack/navigationStack"
 
 
 
 
 
 const Controlled = () =>{
+
+
+    const loginDetails =useContext(LoginInfo)
+
+    console.log(loginDetails)
 
     const [username,setUsername]=useState("")
     const[usernameError,setUserNameError]=useState("")
@@ -31,6 +37,7 @@ const Controlled = () =>{
                   alert(response.message)
               }else{
                   alert("login success")
+                 loginDetails.signIn()
                   localStorage.setItem("userDetails",JSON.stringify(details))
               }
           

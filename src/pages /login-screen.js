@@ -1,10 +1,11 @@
 
 
 import React from 'react'
+import Controlled from '../components /forms/controlled /controlled'
 
 function LoginScreen() {
   return (
-    <div>LoginScreen</div>
+  <Controlled/>
   )
 }
 

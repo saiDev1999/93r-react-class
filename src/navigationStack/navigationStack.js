@@ -9,33 +9,56 @@ import SettingScreen from "../pages /afterLoginRoutes/setting-screen"
 import ProductDetails from "../pages /afterLoginRoutes/product-detail"
 import PostLoginRoutes from "./postLoginRoutes/postLoginRoutes"
 import PreLoginRoutes from "./preLoginRoutes/preLoginRoutes"
-import { useState } from "react"
+import { createContext, useState } from "react"
 
+
+
+ export const LoginInfo=createContext()
+export const theme=createContext()
 
 
 const NavigationStack = () =>{
-    const[login,setLogin]=useState(false)
+    const[login,setLogin]=useState(true)
+    const[darkMode,setDarkMode]=useState(false)
     const signIn=()=>{
+
+      debugger
         setLogin(true)
     }
 
     const signOut=()=>{
         setLogin(false)
     }
+   const setThemeMode=()=>{
+    setDarkMode(!darkMode)
+   }
+
+     
 
     return(
-        <BrowserRouter>
+      <LoginInfo.Provider value={{login,signIn,signOut}} >
+        
+
+<BrowserRouter>
    
-          {
-            login
-            ?
-            <PostLoginRoutes/>
-            :
-            <PreLoginRoutes/>
+   {
+     login
+     ?
 
-          }
 
-        </BrowserRouter>
+    
+     <PostLoginRoutes/>
+   
+     :
+     <PreLoginRoutes/>
+
+   }
+
+ </BrowserRouter>
+
+
+
+      </LoginInfo.Provider>
 
     )
 }
