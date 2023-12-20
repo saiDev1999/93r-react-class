@@ -1,3 +1,4 @@
+import { createContext, useEffect, useState } from 'react';
 import './App.css';
 import Controlled from './components /forms/controlled /controlled';
 import Todos from './components /forms/todo/todo';
@@ -5,11 +6,29 @@ import Uncontrolled from './components /forms/uncontrolled /uncontrolled';
 import UseState1 from './components /hooks/useState1';
 import NavigationStack from './navigationStack/navigationStack';
 
+
+
+
+export const UserName=createContext()
+
 function App() {
+
+  const[name,setName]=useState("kiran")
 
   return (
     <>
-<NavigationStack/>
+    <UserName.Provider value={name}  >
+
+    <NavigationStack/>
+
+
+    </UserName.Provider>
+
+
+
+
+
+
     </>
    
   );
@@ -120,6 +139,131 @@ export default App;
 // 2. about screen 
 // 3. setting screen 
 // etc
+
+
+
+
+
+// useEffect 
+
+
+// It is a hook in functional based component which primarily used to cause or perform side effects 
+
+
+// side effects 
+// 1. http req 
+// 2. dom manipulation 
+// 4. event listeners 
+// 3. timers handling 
+
+
+// useEffect can be considered as the replacement of 3 life cycle methods in class components 
+
+
+// 1.component did mount (once in a life cycle)
+// 2. component did update (when state or prop changes)
+// 3. component will unmount (to prevent the memory leakage of the component(cleanup tasks))
+
+
+// syntax :   useEffect(callbackFunction,array)
+
+// array ---> [] --> dependency array 
+
+// case 1: 
+// [] --> empty array  ---> component did mount
+// [stateVariable] ----->component did update
+
+
+// syntax : useEffect(()=>{},[])
+
+
+
+
+// Context api : way to manage the data globally by avoiding prop driling 
+
+
+// steps 
+// 1. create a context 
+// 2. wrap the context with the provider and pass value prop(data to be shared)
+// 3. use the context data (using useContext hook)
+
+
+
+// useReducer : it is a hook in functional based components which is used to create and manage the state but for the complex custom logic
+
+// use reducer syntax : 
+
+// it will accept 2 args 
+
+// 1. reducer funtion 
+// 2. initial state 
+
+
+// it will return array with 2 elements 
+
+// 1. current state 
+// 2.  dispatch function 
+
+
+
+
+// optimization ? to increase the performance by reducing load time
+
+
+// 1 sec ---> 11% 
+
+
+// Memorization 
+
+
+// milk  50 rupee 
+
+// day 1   2 milk   100
+// day 2   2 milk   100 
+// day 3   2 milk   100
+
+
+
+
+// use memo --->   value Memorization
+
+
+
+// use Callback ---> function Memorization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
