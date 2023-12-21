@@ -2,26 +2,19 @@ import axios from "axios"
 import Navbar from "../../components /navbar/navbar"
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import useAxios from "../../components /customHooks/useAxios"
+import { PRODUCT_LISTING } from "../../components /customHooks/endPoints"
 
 
 
 
 const HomeScreen = () => {
-
-    const [data,setData]=useState([])
-    const handleClick=()=>{
-        //api 
-
-        axios.get("https://fakestoreapi.com/products")
-        .then(response=>setData(response.data))
-
-    }
-
-
+   
+    const [data,error]= useAxios(PRODUCT_LISTING)
+       
     return (
         <>
             <Navbar/>
-            <button  onClick={handleClick}  >Click to load products</button>
 
 
             {

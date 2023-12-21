@@ -237,6 +237,21 @@ export default App;
 
 
 
+// Custom hooks : to share the common functuality btw the components we prefer custom hooks 
+// hook simple functions 
+// custom hooks were designed using existing hooks 
+// custom hook will start with use Keyword and followed  by name 
+
+// ex: useAxios 
+
+// Common functuality : axios , counter 
+
+
+
+
+
+
+
 
 
 

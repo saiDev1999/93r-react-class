@@ -1,22 +1,17 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import useAxios from '../../components /customHooks/useAxios'
+import { EACH_PRODUCT } from '../../components /customHooks/endPoints'
 
 function ProductDetails() {
     const urlId =useParams()
-    console.log(urlId)
-    const [productDetail,setProductDetail]=useState({})
+    const[productDetail,error]=useAxios(`${EACH_PRODUCT}/${urlId.id}`)
 
-
-    const handleProduct=()=>{
-        axios.get(`https://fakestoreapi.com/products/${urlId.id}`)
-        .then(response=>setProductDetail(response.data))
-        
-    }
   return (
     <div>
 
-        <button onClick={handleProduct}  >Click to see the product</button>
+        {/* <button onClick={handleProduct}  >Click to see the product</button> */}
         {
             Object.keys(productDetail).length>0 && <>
             
